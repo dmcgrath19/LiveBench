@@ -47,7 +47,7 @@ register_model_info(
         "mamba-130m-hf",
         "mamba-370m-hf",
         "mamba-790m-hf",
-         "mamba-1.4b-hf", 
+        "mamba-1.4b-hf", 
         "mamba-2.8b-hf"],
     "Mamba",
     "https://huggingface.co/collections/state-spaces/transformers-compatible-mamba-65e7b40ab87e5297e45ae406",
