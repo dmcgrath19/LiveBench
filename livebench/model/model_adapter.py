@@ -22,6 +22,7 @@ from transformers import (
     AutoTokenizer,
     LlamaTokenizer,
     LlamaForCausalLM,
+    MambaForCausalLM,
     T5Tokenizer,
 )
 
@@ -50,6 +51,25 @@ from fastchat.utils import get_gpu_memory
 # weights.  When false we treat all Peft models as separate.
 peft_share_base_weights = (
     os.environ.get("PEFT_SHARE_BASE_WEIGHTS", "false").lower() == "true"
+)
+
+MAMBA_MODEL_LIST = (
+    "mamba-130m-hf",
+    "mamba-370m-hf",
+    "mamba-790m-hf",
+    "mamba-1.4b-hf", 
+    "mamba-2.8b-hf"
+)
+
+PYTHIA_MODEL_LIST = (
+    "pythia-70m",
+    "pythia-160m",
+    "pythia-410m",
+    "pythia-1b",
+    "pythia-1.4b",
+    "pythia-2.8b",
+    "pythia-6.9b",
+    "pythia-12b",
 )
 
 ANTHROPIC_MODEL_LIST = (
@@ -787,7 +807,43 @@ class AiroborosAdapter(BaseModelAdapter):
             model_path, trust_remote_code=True, use_fast=True
         )
         return model, tokenizer
+    
+class PythiaAdapter(BaseModelAdapter):
+    "Model adapter for Pythia models (e.g., pythia-1.4b)"
 
+    def match(self, model_path: str):
+        return "pythia" in model_path.lower()
+
+    def load_model(self, model_path: str, from_pretrained_kwargs: dict):
+        revision = from_pretrained_kwargs.get("revision", "main")
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_path, use_fast=True, revision=revision
+        )
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            low_cpu_mem_usage=True,
+            **from_pretrained_kwargs,
+        )
+        return model, tokenizer
+
+class MambaAdapter(BaseModelAdapter):
+    "Model adapter for Mamba models (e.g., mamba-1.4b-hf)"
+
+    def match(self, model_path: str):
+        return "mamba" in model_path.lower()
+
+    def load_model(self, model_path: str, from_pretrained_kwargs: dict):
+        revision = from_pretrained_kwargs.get("revision", "main")
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_path, use_fast=True, revision=revision
+        )
+        model = MambaForCausalLM.from_pretrained(
+            model_path,
+            low_cpu_mem_usage=True,
+            **from_pretrained_kwargs,
+        )
+        return model, tokenizer
+    
 
 class LongChatAdapter(BaseModelAdapter):
     "Model adapter for LongChat models (e.g., lmsys/longchat-7b-16k)."
