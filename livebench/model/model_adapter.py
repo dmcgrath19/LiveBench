@@ -807,24 +807,6 @@ class AiroborosAdapter(BaseModelAdapter):
             model_path, trust_remote_code=True, use_fast=True
         )
         return model, tokenizer
-    
-class PythiaAdapter(BaseModelAdapter):
-    "Model adapter for Pythia models (e.g., pythia-1.4b)"
-
-    def match(self, model_path: str):
-        return "pythia" in model_path.lower()
-
-    def load_model(self, model_path: str, from_pretrained_kwargs: dict):
-        revision = from_pretrained_kwargs.get("revision", "main")
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_path, use_fast=True, revision=revision
-        )
-        model = AutoModelForCausalLM.from_pretrained(
-            model_path,
-            low_cpu_mem_usage=True,
-            **from_pretrained_kwargs,
-        )
-        return model, tokenizer
 
 class MambaAdapter(BaseModelAdapter):
     "Model adapter for Mamba models (e.g., mamba-1.4b-hf)"
@@ -2547,6 +2529,7 @@ register_model_adapter(GemmaAdapter)
 register_model_adapter(CllmAdapter)
 register_model_adapter(CohereAdapter)
 register_model_adapter(SmaugChatAdapter)
+register_model_adapter(MambaAdapter)
 
 # After all adapters, try the default base adapter.
 register_model_adapter(BaseModelAdapter)
