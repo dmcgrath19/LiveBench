@@ -30,7 +30,7 @@ module load cuda/12.1.1
 source /exports/eddie/scratch/s2558433/miniconda3/etc/profile.d/conda.sh
 module load anaconda
 
-cd /exports/eddie/scratch/s2558433/ArchitectureExtraction/
+cd /exports/eddie/scratch/s2558433/LiveBench/
 
 conda create -n livebench python=3.9
 conda activate livebench
@@ -43,7 +43,6 @@ pip install mamba-ssm
 # python gen_ground_truth_judgment.py --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 # python show_livebench_results.py    --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 
-
 pip install torch packaging
 pip install -e .
 
@@ -52,13 +51,22 @@ pip install -e .
 MODEL_ID="EleutherAI/pythia-1.4b"
 BENCH_NAME="live_bench"
 
+cd livebench
+
 # Generate model answers
-python gen_model_answer.py --model-path $MODEL_ID --model-id $MODEL_ID --bench-name $BENCH_NAME
+python gen_model_answer.py --model-path "EleutherAI/pythia-1.4b" --model-id "pythia-1.4b" --dtype bfloat16 
+
+# python gen_model_answer.py --model-path $MODEL_ID --model-id $MODEL_ID --bench-name $BENCH_NAME
 
 # Score model outputs
-python gen_ground_truth_judgment.py --bench-name $BENCH_NAME
-
+python gen_ground_truth_judgment.py --bench-name livebench
 # Display results
-python show_livebench_results.py --bench-name $BENCH_NAME
+python show_livebench_results.py --bench-name live_bench/reasoning/web_of_lies_v2
+
+python download_leaderboard.py
+python show_livebench_results.py
+python download_questions.py
+
+
 
 conda deactivate
