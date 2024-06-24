@@ -53,24 +53,24 @@ peft_share_base_weights = (
     os.environ.get("PEFT_SHARE_BASE_WEIGHTS", "false").lower() == "true"
 )
 
-MAMBA_MODEL_LIST = (
-    "mamba-130m-hf",
-    "mamba-370m-hf",
-    "mamba-790m-hf",
-    "mamba-1.4b-hf", 
-    "mamba-2.8b-hf"
-)
+# MAMBA_MODEL_LIST = (
+#     "mamba-130m-hf",
+#     "mamba-370m-hf",
+#     "mamba-790m-hf",
+#     "mamba-1.4b-hf", 
+#     "mamba-2.8b-hf"
+# )
 
-PYTHIA_MODEL_LIST = (
-    "pythia-70m",
-    "pythia-160m",
-    "pythia-410m",
-    "pythia-1b",
-    "pythia-1.4b",
-    "pythia-2.8b",
-    "pythia-6.9b",
-    "pythia-12b",
-)
+# PYTHIA_MODEL_LIST = (
+#     "pythia-70m",
+#     "pythia-160m",
+#     "pythia-410m",
+#     "pythia-1b",
+#     "pythia-1.4b",
+#     "pythia-2.8b",
+#     "pythia-6.9b",
+#     "pythia-12b",
+# )
 
 ANTHROPIC_MODEL_LIST = (
     "claude-1",
