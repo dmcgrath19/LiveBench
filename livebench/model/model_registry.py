@@ -27,6 +27,33 @@ def get_model_info(name: str) -> ModelInfo:
             name, "", "Register the description at fastchat/model/model_registry.py"
         )
 
+register_model_info(
+    [
+        "pythia-70m",
+        "pythia-160m", 
+        "pythia-410m", 
+        "pythia-1b", 
+        "pythia-1.4b", 
+        "pythia-2.8b", 
+        "pythia-6.9b", 
+        "pythia-12b"],
+    "Pythia",
+    "https://github.com/EleutherAI/pythia",
+    "Pythia is a series of large language models released by EleutherAI, designed to advance research in understanding the behavior of large language models.",
+)
+
+register_model_info(
+    [
+        "mamba-130m-hf",
+        "mamba-370m-hf",
+        "mamba-790m-hf",
+         "mamba-1.4b-hf", 
+        "mamba-2.8b-hf"],
+    "Mamba",
+    "https://huggingface.co/collections/state-spaces/transformers-compatible-mamba-65e7b40ab87e5297e45ae406",
+    "Mamba is a family of advanced large language models known for their versatility and performance across various NLP tasks.",
+)
+
 
 register_model_info(
     [
