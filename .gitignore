@@ -29,5 +29,8 @@ output
 *.pkl
 *.csv
 
+results/*
+runs/*
+move_data.md
 # Build
 build
