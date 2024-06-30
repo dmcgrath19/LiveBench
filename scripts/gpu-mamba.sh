@@ -32,19 +32,19 @@ module load anaconda
 
 cd /exports/eddie/scratch/s2558433/LiveBench/
 
-# conda create -n livebench python=3.10
+conda create -n livebench python=3.10
 conda activate livebench
 
-# pip install causal-conv1d>=1.2.0
-# pip install mamba-ssm
+pip install causal-conv1d>=1.2.0
+pip install mamba-ssm
 
 # # python gen_model_answer.py          --bench-name live_bench --model-path /path/to/Mistral-7B-Instruct-v0.2/ --model-id Mistral-7B-Instruct-v0.2 --dtype bfloat16 
 # # python gen_api_answer.py            --bench-name live_bench --model gpt-4-turbo
 # # python gen_ground_truth_judgment.py --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 # # python show_livebench_results.py    --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 
-# pip install torch packaging
-# pip install -e .
+pip install torch packaging
+pip install -e .
 
 
 # Define model identifier
