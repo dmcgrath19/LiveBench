@@ -60,9 +60,9 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
 
-python gen_model_answer.py --bench-name language --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
-python gen_model_answer.py --bench-name math --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
-python gen_model_answer.py --bench-name reasoning --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 
 # python gen_model_answer.py --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
@@ -73,9 +73,10 @@ python gen_model_answer.py --bench-name reasoning --model-path "state-spaces/mam
 
 # # Score model outputs
 # # python gen_ground_truth_judgment.py --bench-name livebench
-# python gen_ground_truth_judgment.py --bench-name live_bench --model-list [pythia-1.4b, pythia-2.8b, pythia-410m, pythia-1b, pythia-160m, mamba-2.8b-hf, mamba-1.4b-hf, mamba-790m, mamba-370m, mamba-130m]
+python gen_ground_truth_judgment.py --bench-name live_bench --model-list ['pythia-1.4b', 'pythia-2.8b', 'mamba-2.8b-hf']
 # # Display results
-# python show_livebench_results.py --bench-name live_bench/reasoning/web_of_lies_v2
+
+python show_livebench_results.py --bench-name live_bench/reasoning/web_of_lies_v2
 
 # This is for all models so you do not want this
 # python download_leaderboard.py
