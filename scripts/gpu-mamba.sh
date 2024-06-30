@@ -32,7 +32,7 @@ module load anaconda
 
 cd /exports/eddie/scratch/s2558433/LiveBench/
 
-conda create -n livebench python=3.10
+# conda create -n livebench python=3.10
 conda activate livebench
 
 pip install causal-conv1d>=1.2.0
