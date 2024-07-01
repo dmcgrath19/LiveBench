@@ -8,7 +8,7 @@
 #$ -q gpu
 #$ -pe gpu-a100 1
 #$ -l h_vmem=500G
-#$ -l h_rt=48:00:00
+#$ -l h_rt=24:00:00
 #$ -m bea -M s2558433@ed.ac.uk 
 
 export HF_HOME="/exports/eddie/scratch/s2558433/.cache/huggingface_cache"
@@ -32,7 +32,9 @@ module load anaconda
 
 cd /exports/eddie/scratch/s2558433/LiveBench/
 
-# conda create -n livebench python=3.10
+conda remove env -n livebench
+
+conda create -n livebench python=3.10
 conda activate livebench
 
 pip install causal-conv1d>=1.2.0
@@ -59,6 +61,10 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
+python gen_ground_truth_judgment.py --bench-name live_bench --model-list ['pythia-1.4b', 'pythia-2.8b', 'mamba-2.8b-hf']
+
+python show_livebench_results.py --bench-name live_bench/reasoning/web_of_lies_v2
+
 
 python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
@@ -73,10 +79,8 @@ python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "sta
 
 # # Score model outputs
 # # python gen_ground_truth_judgment.py --bench-name livebench
-python gen_ground_truth_judgment.py --bench-name live_bench --model-list ['pythia-1.4b', 'pythia-2.8b', 'mamba-2.8b-hf']
 # # Display results
 
-python show_livebench_results.py --bench-name live_bench/reasoning/web_of_lies_v2
 
 # This is for all models so you do not want this
 # python download_leaderboard.py
