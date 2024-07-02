@@ -61,14 +61,18 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
-python gen_ground_truth_judgment.py --bench-name live_bench --model-list ['pythia-1.4b', 'pythia-2.8b', 'mamba-2.8b-hf']
-
-python show_livebench_results.py --bench-name live_bench/reasoning/web_of_lies_v2
-
 
 python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+
+#score the two new ones
+python gen_ground_truth_judgment.py --bench-name 'live_bench/language'
+python gen_ground_truth_judgment.py --bench-name 'live_bench/math'
+
+#update the .csv files of results
+python gen_ground_truth_judgment.py --bench-name livebench
+
+# python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 
 # python gen_model_answer.py --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
