@@ -37,7 +37,7 @@ conda remove env -n livebench
 conda create -n livebench python=3.10
 conda activate livebench
 
-# pip install causal-conv1d>=1.2.0
+# pip install causal-conv1d>=1.4.0
 # pip install mamba-ssm
 
 # # python gen_model_answer.py          --bench-name live_bench --model-path /path/to/Mistral-7B-Instruct-v0.2/ --model-id Mistral-7B-Instruct-v0.2 --dtype bfloat16 
@@ -49,9 +49,6 @@ conda activate livebench
 # pip install -e .
 
 
-# Define model identifier
-MODEL_ID="EleutherAI/pythia-1.4b"
-BENCH_NAME="live_bench"
 
 cd livebench
 
@@ -70,7 +67,9 @@ python gen_ground_truth_judgment.py --bench-name 'live_bench/language'
 python gen_ground_truth_judgment.py --bench-name 'live_bench/math'
 
 #update the .csv files of results
-python gen_ground_truth_judgment.py --bench-name livebench
+python show_livebench_results.py
+
+# python gen_ground_truth_judgment.py --bench-name livebench
 
 # python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 
@@ -84,11 +83,6 @@ python gen_ground_truth_judgment.py --bench-name livebench
 # # Score model outputs
 # # python gen_ground_truth_judgment.py --bench-name livebench
 # # Display results
-
-
-# This is for all models so you do not want this
-# python download_leaderboard.py
-# python show_livebench_results.py
 # python download_questions.py
 
 conda deactivate
