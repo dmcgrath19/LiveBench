@@ -1,9 +1,6 @@
 #!/bin/bash
 
-#SBATCH -n 1	  # tasks requested
-#SBATCH --partition=PGR-Standard
 #SBATCH --gres=gpu:a6000 
-#SBATCH --mem=12000  # memory in Mb
 #SBATCH --time=0-08:00:00
 #SBATCH -o job_output.out  # output file for stdout
 #SBATCH -e job_error.err  # output file for stderr
