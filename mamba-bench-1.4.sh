@@ -29,7 +29,6 @@ export TOKENIZERS_PARALLELISM=false
 # conda remove env -n livebench
 
 # conda create -n livebench python=3.10
-conda activate livebench
 
 # pip install causal-conv1d>=1.4.0
 # pip install mamba-ssm
