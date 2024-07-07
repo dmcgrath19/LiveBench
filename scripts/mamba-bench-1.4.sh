@@ -22,7 +22,7 @@ export TOKENIZERS_PARALLELISM=false
 # source home/s2558433/miniconda3/etc/profile.d/conda.sh
 # module load anaconda
 
-source .bashrc
+# source .bashrc
 
 cd home/s2558433/LiveBench/
 
