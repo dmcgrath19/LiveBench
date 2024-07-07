@@ -1,9 +1,8 @@
 #!/bin/bash
 
-#SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
 #SBATCH --partition=PGR-Standard
-#SBATCH --gres=gpu:a6000  # specify the type of GPU you need
+#SBATCH --gres=gpu:a6000 
 #SBATCH --mem=12000  # memory in Mb
 #SBATCH --time=0-08:00:00
 #SBATCH -o job_output.out  # output file for stdout
