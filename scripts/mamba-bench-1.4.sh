@@ -5,6 +5,9 @@
 #SBATCH -o job_output.out  # output file for stdout
 #SBATCH -e job_error.err  # output file for stderr
 
+set -e
+set -x
+
 export HF_HOME="home/s2558433/.cache/huggingface_cache"
 export TRANSFORMERS_CACHE="home/s2558433/.cache/huggingface_cache/transformers"
 export HF_DATASETS_CACHE="home/s2558433/.cache/huggingface_cache/datasets"
@@ -16,8 +19,10 @@ export CFLAGS="-std=c99"
 export TOKENIZERS_PARALLELISM=false
 
 
-source home/s2558433/miniconda3/etc/profile.d/conda.sh
-module load anaconda
+# source home/s2558433/miniconda3/etc/profile.d/conda.sh
+# module load anaconda
+
+source .bashrc
 
 cd home/s2558433/LiveBench/
 
@@ -35,7 +40,7 @@ conda activate livebench
 # # python show_livebench_results.py    --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 
 # pip install torch packaging
-# pip install -e .
+pip install -e .
 
 
 
