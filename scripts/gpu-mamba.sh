@@ -32,9 +32,9 @@ module load anaconda
 
 cd /exports/eddie/scratch/s2558433/LiveBench/
 
-conda remove env -n livebench
+# conda remove env -n livebench
 
-conda create -n livebench python=3.10
+# conda create -n livebench python=3.10
 conda activate livebench
 
 # pip install causal-conv1d>=1.4.0
@@ -45,7 +45,7 @@ conda activate livebench
 # # python gen_ground_truth_judgment.py --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 # # python show_livebench_results.py    --bench-name live_bench --model-list Mistral-7B-Instruct-v0.2 Llama-2-7b-chat-hf claude-3-opus-20240229
 
-# pip install torch packaging
+# # pip install torch packaging
 # pip install -e .
 
 
@@ -59,21 +59,22 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
 
-python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 
-#score the two new ones
-python gen_ground_truth_judgment.py --bench-name 'live_bench/language'
-python gen_ground_truth_judgment.py --bench-name 'live_bench/math'
 
-#update the .csv files of results
-python show_livebench_results.py
+# #score the two new ones
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/language'
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/math'
+
+# #update the .csv files of results
+# python show_livebench_results.py
 
 # python gen_ground_truth_judgment.py --bench-name livebench
 
 # python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 
-# python gen_model_answer.py --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
+python gen_model_answer.py --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-130m" --model-id "mamba-130m" --dtype bfloat16 
