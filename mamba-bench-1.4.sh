@@ -24,7 +24,7 @@ export TOKENIZERS_PARALLELISM=false
 
 # source .bashrc
 
-cd home/s2558433/LiveBench/
+# cd home/s2558433/LiveBench/
 
 # conda remove env -n livebench
 
