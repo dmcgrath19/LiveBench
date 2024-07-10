@@ -45,13 +45,19 @@ conda activate livebench
 
 # pip install torch packaging
 # pip install -e .
-
-
-# Define model identifier
-MODEL_ID="EleutherAI/pythia-1.4b"
-BENCH_NAME="live_bench"
-
 cd livebench
+
+# language   math  reasoning
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "EleutherAI/pythia-410m" --model-id "pythia-410m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/math' --model-path "EleutherAI/pythia-410m" --model-id "pythia-410m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "EleutherAI/pythia-410m" --model-id "pythia-410m" --dtype bfloat16 
+
+python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model pythia-410m
+python gen_ground_truth_judgment.py --bench-name 'live_bench/math' --model pythia-410m
+python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model pythia-410m
+
+
+# Define model identifie
 
 # # Generate model answers
 # python gen_model_answer.py --model-path "EleutherAI/pythia-2.8b" --model-id "pythia-2.8b" --dtype bfloat16 
@@ -60,7 +66,7 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
 
-python gen_model_answer.py --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+# python gen_model_answer.py --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
