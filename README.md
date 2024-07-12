@@ -8,10 +8,11 @@
     <a href="https://livebench.ai/livebench.pdf">📝 Paper</a> 
 </p>
 
-Leaderboard as of 20th June 2024:
+Leaderboard as of 25th June 2024:
 
-![image](assets/livebench-2024-06-20.png)
+![image](assets/livebench-2024-06-25.png)
 
+**Update 25th June 2024:** we removed a reasoning sub-task, house_traversal, because of ambiguous parsing causing misleading results. We will replace it in a future release.
 
 ## Introduction
 
@@ -59,6 +60,7 @@ export ANTHROPIC_API_KEY=<your_key>
 export MISTRAL_API_KEY=<your_key>
 export CO_API_KEY=<your_key>
 export GEMINI_API_KEY=<your_key>
+export DEEPSEEK_API_KEY=<your_key>
 python gen_api_answer.py --model <api_model_name> --bench-name live_bench
 ```
 
@@ -125,9 +127,10 @@ Here, we describe our dataset documentation. This information is also available 
 ## Citation
 
 ```bibtex
-@misc{livebench,
+@article{livebench,
   author    = {White, Colin and Dooley, Samuel and Roberts, Manley and Pal, Arka and Feuer, Ben and Jain, Siddhartha and Shwartz-Ziv, Ravid and Jain, Neel and Saifullah, Khalid and Naidu, Siddartha and Hegde, Chinmay and LeCun, Yann and Goldstein, Tom and Neiswanger, Willie and Goldblum, Micah},
   title     = {LiveBench: A Challenging, Contamination-Free LLM Benchmark},
-  url       = {https://livebench.ai},
+  url       = {arXiv preprint arXiv:2406.19314},
   year      = {2024},
-}```
+}
+```
