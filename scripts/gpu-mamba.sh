@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N BENCH-MAMBA
+#$ -N CR-BENCH-MAMBA
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.err
 #$ -cwd
@@ -59,8 +59,14 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
 
-python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
+
+python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16
+
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16
+
+
 # python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
 
 # python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
