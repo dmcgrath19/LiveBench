@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N re-2.8BENCH-PY
+#$ -N sm1-BENCH-PY
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchPY-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchPY-1.4_$JOB_ID.err
 #$ -cwd
@@ -60,7 +60,15 @@ cd livebench
 # Define model identifie
 
 # # Generate model answers
-python gen_model_answer.py --bench-name 'live_bench/math' --model-path "EleutherAI/pythia-2.8b" --model-id "pythia-2.8b" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/math' --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
+
+# python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/math' --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
+
+# python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
+
 # python gen_model_answer.py --model-path "EleutherAI/pythia-410m" --model-id "pythia-410m" --dtype bfloat16 
 # python gen_model_answer.py --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
