@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N LD13-BENCH-MAMBA
+#$ -N LIF13-BENCH-MAMBA
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.err
 #$ -cwd
@@ -59,10 +59,11 @@ cd livebench
 # python gen_model_answer.py --model-path "EleutherAI/pythia-160m" --model-id "pythia-160m" --dtype bfloat16 
 
 
-# python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-130m-hf" --model-id "mamba-130m-hf" --dtype bfloat16 
 
-# python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-130m-hf" --model-id "mamba-130m-hf" --dtype bfloat16 
+
+# python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "state-spaces/mamba-130m-hf" --model-id "mamba-130m-hf" --dtype bfloat16
 
 # python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-790m-hf" --model-id "mamba-790m-hf" --dtype bfloat16
 
@@ -75,12 +76,12 @@ cd livebench
 
 
 # # score the two new ones=
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-130m-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf
-python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
-python gen_ground_truth_judgment.py --bench-name 'live_bench/data_analysis' --model mamba-130m-hf
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
+# # python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model-path mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/data_analysis' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
 
 # #update the .csv files of results
 # python show_livebench_results.py
