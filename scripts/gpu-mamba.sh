@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N 13CL-BENCH-MAMBA
+#$ -N 13RIF-BENCH-MAMBA
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.err
 #$ -cwd
@@ -75,10 +75,10 @@ cd livebench
 
 
 #score the two new ones=
-python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-130m-hf
-python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
-# # python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-130m-hf
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
+python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf
+python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf
 # python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
 # python gen_ground_truth_judgment.py --bench-name 'live_bench/data_analysis' --model mamba-130m-hf
 
