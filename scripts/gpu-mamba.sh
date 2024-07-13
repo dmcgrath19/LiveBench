@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N re2.8-BENCH-MAMBA
+#$ -N 13CL-BENCH-MAMBA
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.err
 #$ -cwd
@@ -75,18 +75,19 @@ cd livebench
 
 
 #score the two new ones=
-# # python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-1.4b-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-1.4b-hf
-# # python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-1.4b-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-790m-hf
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-790m-hf
+python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-130m-hf
+python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
+# # python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/data_analysis' --model mamba-130m-hf
 
 # #update the .csv files of results
 # python show_livebench_results.py
 
 # python gen_ground_truth_judgment.py --bench-name livebench
 
-python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-2.8b-hf" --model-id "mamba-2.8b-hf" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-130m-hf" --model-id "mamba-130m-hf" --dtype bfloat16 
 
 # python gen_model_answer.py --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 # python gen_model_answer.py --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
