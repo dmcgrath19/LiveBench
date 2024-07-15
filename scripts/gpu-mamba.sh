@@ -77,11 +77,11 @@ cd livebench
 # python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
 # python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
 
-python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
 
-# python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
 
 
 # # score the two new ones=
