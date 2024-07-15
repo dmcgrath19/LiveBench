@@ -71,14 +71,14 @@ cd livebench
 
 # python gen_model_answer.py --model-path "EleutherAI/pythia-410m" --model-id "pythia-410m" --dtype bfloat16 
 
-python gen_model_answer.py --bench-name 'live_bench/math' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/language' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/math' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
 
 
-# python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "EleutherAI/pythia-1b" --model-id "pythia-1b" --dtype bfloat16 
 
 
 
