@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N re-2.8-BENCH-MAMBA
+#$ -N first-BENCH-MAMBA
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.err
 #$ -cwd
@@ -74,18 +74,18 @@ cd livebench
 # python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 #python gen_model_answer.py --bench-name 'live_bench/code' --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
 
-# python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
 
-# python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
 
-python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-790m" --model-id "mamba-790m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-370m" --model-id "mamba-370m" --dtype bfloat16 
 
 
 # # score the two new ones=
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/coding' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model-id "mamba-2.8b-hf" --dtype bfloat16
 # python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
 # python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
 # # python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
