@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N first-BENCH-MAMBA
+#$ -N slimpj-BENCH-MAMBA
 #$ -o /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/benchMA-1.4_$JOB_ID.err
 #$ -cwd
@@ -78,9 +78,9 @@ cd livebench
 # python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-370m-hf" --model-id "mamba-370m-hf" --dtype bfloat16 
 # python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "state-spaces/mamba-370m-hf" --model-id "mamba-370m-hf" --dtype bfloat16 
 
-python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-1.4b-hf" --model-id "mamba-1.4b-hf" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "state-spaces/mamba-370m-hf" --model-id "mamba-370m-hf" --dtype bfloat16 
-# python gen_model_answer.py --bench-name 'live_bench/language' --model-path "state-spaces/mamba-370m-hf" --model-id "mamba-370m-hf" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
+
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
 
 
 # # score the two new ones=
