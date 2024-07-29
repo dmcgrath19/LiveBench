@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the variable for the job name and log/error files
-#$ -N BTLM3-BENCH
+#$ -N BTLM2-BENCH
 #$ -o /exports/eddie/scratch/s2558433/job_runs/bmt_$JOB_ID.log
 #$ -e /exports/eddie/scratch/s2558433/job_runs/bmt_$JOB_ID.err
 #$ -cwd
@@ -38,8 +38,8 @@ conda activate livebench
 
 cd livebench
 
-python gen_model_answer.py --bench-name 'live_bench/math' --model-path "cerebras/btlm-3b-8k-base" --model-id "btlm-3b-8k-base" --dtype bfloat16 
-python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "cerebras/btlm-3b-8k-base" --model-id "btlm-3b-8k-base" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/instruction_following' --model-path "cerebras/btlm-3b-8k-base" --model-id "btlm-3b-8k-base" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "cerebras/btlm-3b-8k-base" --model-id "btlm-3b-8k-base" --dtype bfloat16 
 
 
 
