@@ -78,9 +78,9 @@ cd livebench
 # python gen_model_answer.py --bench-name 'live_bench/math' --model-path "state-spaces/mamba-370m-hf" --model-id "mamba-370m-hf" --dtype bfloat16 
 # python gen_model_answer.py --bench-name 'live_bench/data_analysis' --model-path "state-spaces/mamba-370m-hf" --model-id "mamba-370m-hf" --dtype bfloat16 
 
-python gen_model_answer.py --bench-name 'live_bench/coding' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
+python gen_model_answer.py --bench-name 'live_bench/language' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
 
-python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
+# python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
 
 # coding
 # reasoning
