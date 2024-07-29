@@ -82,9 +82,17 @@ python gen_model_answer.py --bench-name 'live_bench/language' --model-path "Arth
 
 python gen_model_answer.py --bench-name 'live_bench/reasoning' --model-path "ArthurZ/mamba-2.8b-slimpj" --model-id "mamba-2.8b-slimpj" --dtype bfloat16 
 
+coding
+reasoning
+language/typos
+
+dome
+instruction_following
+math
+data_analysis
 
 # # score the two new ones=
-# python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model-id "mamba-2.8b-hf" --dtype bfloat16
+# python gen_ground_truth_judgment.py --bench-name 'live_bench/langugae' --model-list "mamba-2.8b-slimpj"
 # python gen_ground_truth_judgment.py --bench-name 'live_bench/language' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
 # python gen_ground_truth_judgment.py --bench-name 'live_bench/reasoning' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
 # # python gen_ground_truth_judgment.py --bench-name 'live_bench/instruction_following' --model mamba-130m-hf --model-id "mamba-130m-hf" --dtype bfloat16
