@@ -2431,6 +2431,35 @@ class CohereAdapter(BaseModelAdapter):
 
     def get_default_conv_template(self, model_path: str) -> Conversation:
         return get_conv_template("api_based_default")
+    
+class BtlmAdapter(BaseModelAdapter):
+    """Model adapter for BTLM models (e.g., BTLM-3B-8k-base)"""
+
+    def match(self, model_path: str) -> bool:
+        return "btlm" in model_path.lower()
+
+    def load_model(self, model_path: str, from_pretrained_kwargs: dict):
+        # Load tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_path,
+            use_fast=True,
+            trust_remote_code=True
+        )
+
+        # Load model without Flash Attention 2.0
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            trust_remote_code=True,
+            low_cpu_mem_usage=True,
+            **from_pretrained_kwargs
+        )
+
+        # Ensure model configuration aligns with tokenizer's special tokens
+        model.config.eos_token_id = tokenizer.eos_token_id
+        model.config.pad_token_id = tokenizer.pad_token_id
+
+        return model, tokenizer
+
 
 
 
@@ -2530,6 +2559,8 @@ register_model_adapter(CllmAdapter)
 register_model_adapter(CohereAdapter)
 register_model_adapter(SmaugChatAdapter)
 register_model_adapter(MambaAdapter)
+register_model_adapter(BtlmAdapter)
+
 
 # After all adapters, try the default base adapter.
 register_model_adapter(BaseModelAdapter)
